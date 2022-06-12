@@ -1,0 +1,19 @@
+{
+  "name": "nodejs-expressjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/dinhdn218/learn-nodejs-expressjs.git"
+  },
+  "author": "dinhdn218",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dinhdn218/learn-nodejs-expressjs/issues"
+  },
+  "homepage": "https://github.com/dinhdn218/learn-nodejs-expressjs#readme"
+}
