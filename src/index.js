@@ -1,11 +1,21 @@
 const express = require('express');
+const app = express();
+const port = 3000;
 const path = require('path');
 const { engine } = require('express-handlebars');
 const morgan = require('morgan');
-const app = express();
-const port = 3000;
+const bodyParser = require('body-parser');
 
+const route = require('./routes');
+
+// Use static file in folder public
 app.use(express.static(path.join(__dirname, 'public')));
+// Use static file in folder resources
+app.use(express.static(path.join(__dirname, 'resources')));
+
+// use middleware to parse req from form data to body
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 // Morgan - HTTP logger
 app.use(morgan('combined'));
@@ -20,18 +30,8 @@ app.engine(
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources/views'));
 
-app.get('/', (req, res) => {
-  console.log(req.query.q);
-  res.render('home');
-});
-
-app.get('/news', (req, res) => {
-  res.render('news');
-});
-
-app.get('/search', (req, res) => {
-  res.render('search');
-});
+// Routes init
+route(app);
 
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`);
