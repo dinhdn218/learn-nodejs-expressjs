@@ -5,8 +5,12 @@ const path = require('path');
 const { engine } = require('express-handlebars');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const db = require('./config/db');
 
 const route = require('./routes');
+
+// connect db
+db.connect();
 
 // Use static file in folder public
 app.use(express.static(path.join(__dirname, 'public')));

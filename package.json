@@ -20,10 +20,11 @@
   "homepage": "https://github.com/dinhdn218/learn-nodejs-expressjs#readme",
   "dependencies": {
     "express": "^4.18.1",
-    "express-handlebars": "^6.0.6"
+    "express-handlebars": "^6.0.6",
+    "mongoose": "^6.4.0"
   },
   "devDependencies": {
-    "husky": "^8.0.1",
+    "husky": "4.3.8",
     "lint-staged": "^13.0.2",
     "morgan": "^1.10.0",
     "node-sass": "^7.0.1",
@@ -32,7 +33,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged --allow-empty"
     }
   }
 }
