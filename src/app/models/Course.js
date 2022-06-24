@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const Course = new Schema({
+const courseSchema = new Schema({
   title: { type: String },
   description: { type: String },
   thumbnail: { type: String },
@@ -10,6 +10,6 @@ const Course = new Schema({
   updatedAt: { type: Date, default: Date.now },
 });
 
-const CourseModel = mongoose.model('Course', Course);
+const CourseModel = mongoose.model('Course', courseSchema);
 
 module.exports = CourseModel;
