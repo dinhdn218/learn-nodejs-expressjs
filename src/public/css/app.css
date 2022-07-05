@@ -5,5 +5,9 @@
 .courses-page {
   margin-top: 110px; }
 
+.course-detail {
+  margin-top: 90px; }
+
 .home-page {
-  margin-top: 80px; }
+  margin-top: 80px;
+  margin-left: 30px; }

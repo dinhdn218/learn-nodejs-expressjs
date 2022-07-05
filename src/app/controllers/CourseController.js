@@ -1,6 +1,6 @@
 const CourseModel = require('../models/Course');
 
-class CoursesController {
+class CourseController {
   // [GET] /course
   index(req, res, next) {
     CourseModel.find({})
@@ -10,9 +10,12 @@ class CoursesController {
   }
 
   // [GET] /course/:slug
-  showDetail(req, res) {
-    res.send('Course DETAIL');
+  detail(req, res, next) {
+    CourseModel.findOne({ slug: req.params.slug })
+      .lean()
+      .then((course) => res.render('courses/detail', { course }))
+      .catch(next);
   }
 }
 
-module.exports = new CoursesController();
+module.exports = new CourseController();
