@@ -1,0 +1,37 @@
+<div class='pt-4'>
+  <form class='container' method='POST' action='store'>
+    <div class='mb-3'>
+      <label for='title' class='form-label'>Tiêu đề</label>
+      <input
+        name='title'
+        type='text'
+        class='form-control'
+        id='title'
+        placeholder='VD: Khoá học HTML/CSS'
+        required='true'
+      />
+    </div>
+    <div class='mb-3'>
+      <label for='description' class='form-label'>Mô tả</label>
+      <textarea
+        class='form-control'
+        id='description'
+        rows='3'
+        name='description'
+        required='true'
+      ></textarea>
+    </div>
+    <div class='mb-3'>
+      <label for='title' class='form-label'>Video ID</label>
+      <input
+        type='text'
+        class='form-control'
+        id='title'
+        placeholder='Video ID Youtube. VD: biS5yrMJalU'
+        name='videoId'
+        required='true'
+      />
+    </div>
+    <button type='submit' class='btn btn-primary mb-3'>Tạo mới</button>
+  </form>
+</div>
