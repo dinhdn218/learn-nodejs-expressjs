@@ -6,6 +6,7 @@ const { engine } = require('express-handlebars');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const db = require('./config/db');
+const methodOverride = require('method-override');
 
 const route = require('./routes');
 
@@ -23,6 +24,8 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 
 // Morgan - HTTP logger
 app.use(morgan('combined'));
+
+app.use(methodOverride('_method'));
 
 // Handlebars - Template engine
 app.engine(

@@ -1,0 +1,10 @@
+Cấu trúc mongodb
+ - database name: dinhdn_dev
+ - collection name: courses
+ - document example: {
+    title: "HTML và CSS",
+    description: "Để học web Front-end chúng ta luôn bắt đầu với ngôn ngữ HTML và CSS, đ…"
+    thumbnail: "https://files.fullstack.edu.vn/f8-prod/courses/2.png"
+    slug: "html-css"
+    videoId: "R6plN3FvzFY"
+ } 

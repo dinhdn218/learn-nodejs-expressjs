@@ -1,7 +1,12 @@
 <div class='pt-4'>
-  <form class='container' method='POST' action='store'>
-    <h2 class='mb-3'>Tạo mới khoá học</h2>
-    <div class='mb-3'>
+  <form
+    class='container'
+    method='POST'
+    action='?_method=PUT'
+    accept-charset='UTF-8'
+  >
+    <h2 class='mb-3'>Chỉnh sửa khoá học</h2>
+    <div class='form-group mb-3'>
       <label for='title' class='form-label'>Tiêu đề</label>
       <input
         name='title'
@@ -10,6 +15,7 @@
         id='title'
         placeholder='VD: Khoá học HTML/CSS'
         required='true'
+        value={{course.title}}
       />
     </div>
     <div class='mb-3'>
@@ -20,7 +26,7 @@
         rows='3'
         name='description'
         required='true'
-      ></textarea>
+      >{{course.description}}</textarea>
     </div>
     <div class='mb-3'>
       <label for='title' class='form-label'>Video ID</label>
@@ -31,8 +37,9 @@
         placeholder='Video ID Youtube. VD: biS5yrMJalU'
         name='videoId'
         required='true'
+        value={{course.videoId}}
       />
     </div>
-    <button type='submit' class='btn btn-primary mb-3'>Tạo mới</button>
+    <button type='submit' class='btn btn-success mb-3'>Lưu lại</button>
   </form>
 </div>
