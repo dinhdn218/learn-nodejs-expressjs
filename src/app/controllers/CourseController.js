@@ -29,7 +29,9 @@ const newsController = {
 
   // GET Create /courses/create
   create(req, res) {
-    res.render('courses/create')
+    res.render('courses/create', {
+      currentRoute: '/courses',
+    })
   },
 
   // POST Create /courses/store
@@ -40,6 +42,25 @@ const newsController = {
       .save()
       .then(() => res.redirect('/courses'))
       .catch(() => res.send('ERROR'))
+  },
+
+  // GET Edit /courses/:id/edit
+  edit(req, res, next) {
+    Course.findById(req.params.id)
+      .then((course) => {
+        return res.render('courses/edit', {
+          currentRoute: '/courses',
+          course: course.toObject(),
+        })
+      })
+      .catch(next)
+  },
+
+  // PUT Edit /courses/:id/save
+  save(req, res, next) {
+    Course.updateOne({ _id: req.params.id }, req.body)
+      .then(() => res.redirect('/courses'))
+      .catch(next)
   },
 }
 

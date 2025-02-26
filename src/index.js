@@ -5,10 +5,12 @@ const morgan = require('morgan')
 const app = express()
 const port = 3000
 const route = require('./routes')
+const methodOverride = require('method-override')
 
 app.use(morgan('short'))
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true })) // Parse URL-encoded bodies
+app.use(methodOverride('_method')) // Use PUT and DELETE methods
 
 // Set up handlebars
 app.engine(

@@ -1,11 +1,11 @@
 <button class='btn btn-primary mb-4'>
   <a href='/courses' class='text-white text-decoration-none'>Back to Courses</a>
 </button>
-<h1>Thêm mới khoá học</h1>
-<form method='post' action='/courses/store'>
+<h1>Chỉnh sửa khoá học</h1>
+<form method='post' action='/courses/{{course._id}}/save?_method=PUT'>
   <div class='mb-3'>
     <label for='name' class='form-label'>Tên khoá học</label>
-    <input name='name' class='form-control' id='name' />
+    <input value='{{course.name}}' name='name' class='form-control' id='name' />
   </div>
   <div class='mb-3'>
     <label for='description' class='form-label'>Mô tả</label>
@@ -14,11 +14,16 @@
       class='form-control'
       id='description'
       rows='3'
-    ></textarea>
+    >{{course.description}}</textarea>
   </div>
   <div class='mb-3'>
     <label for='image' class='form-label'>Link ảnh</label>
-    <input name='image' class='form-control' id='image' />
+    <input
+      name='image'
+      class='form-control'
+      id='image'
+      value={{course.image}}
+    />
   </div>
-  <button type='submit' class='btn btn-primary'>Submit</button>
+  <button type='submit' class='btn btn-primary'>Lưu</button>
 </form>
