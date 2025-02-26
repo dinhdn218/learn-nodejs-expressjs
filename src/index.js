@@ -18,7 +18,7 @@ app.engine(
   })
 )
 app.set('view engine', 'hbs')
-app.set('views', path.join(__dirname, 'resources/views'))
+app.set('views', path.join(__dirname, 'resources', 'views'))
 
 // Register a helper to check if the current route is active
 const hbs = expressHandlebars.create({})
