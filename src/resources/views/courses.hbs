@@ -48,6 +48,10 @@
               </svg>
             </a>
             <svg
+              data-bs-toggle='modal'
+              data-bs-target='#deleteModal'
+              data-bs-id='{{_id}}'
+              data-bs-name='{{name}}'
               style='cursor: pointer;'
               xmlns='http://www.w3.org/2000/svg'
               width='16'
@@ -69,3 +73,56 @@
     </div>
   {{/each}}
 </div>
+
+<!-- Confirm Delete Modal -->
+<div
+  class='modal fade'
+  id='deleteModal'
+  tabindex='-1'
+  aria-labelledby='exampleModalLabel'
+  aria-hidden='true'
+>
+  <div class='modal-dialog modal-dialog-centered'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h1 class='modal-title fs-5' id='exampleModalLabel'>Delete course</h1>
+        <button
+          type='button'
+          class='btn-close'
+          data-bs-dismiss='modal'
+          aria-label='Close'
+        ></button>
+      </div>
+      <div class='modal-body'>
+        Want to delete this course?
+      </div>
+      <div class='modal-footer'>
+        <button
+          type='button'
+          class='btn btn-secondary'
+          data-bs-dismiss='modal'
+        >Close</button>
+        <button
+          type='button'
+          id='btn-delete-course'
+          class='btn btn-danger'
+        >Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form method='post' name='delete-form'></form>
+
+<script>
+  const deleteModal = document.getElementById('deleteModal'); let courseId; if
+  (deleteModal) { deleteModal.addEventListener('show.bs.modal', event => { const
+  button = event.relatedTarget; courseId = button.getAttribute('data-bs-id');
+  const recipientName = button.getAttribute('data-bs-name'); const
+  modalBodyInput = deleteModal.querySelector('.modal-body');
+  modalBodyInput.textContent = `Want to delete course "${recipientName}"?`; });
+  } const btnDeleteCourse = document.getElementById('btn-delete-course'); const
+  deleteForm = document.forms['delete-form']; if (btnDeleteCourse && deleteForm)
+  { btnDeleteCourse.addEventListener('click', () => { deleteForm.action =
+  `/courses/${courseId}?_method=DELETE`; deleteForm.submit(); }); }
+</script>

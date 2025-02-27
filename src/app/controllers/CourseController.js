@@ -62,6 +62,13 @@ const newsController = {
       .then(() => res.redirect('/courses'))
       .catch(next)
   },
+
+  // DELETE /courses/:id
+  delete(req, res, next) {
+    Course.deleteOne({ _id: req.params.id })
+      .then(() => res.redirect('back'))
+      .catch(next)
+  },
 }
 
 module.exports = newsController
